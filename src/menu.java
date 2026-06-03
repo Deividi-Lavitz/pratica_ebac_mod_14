@@ -16,7 +16,35 @@ public class menu {
 
 
         System.out.println("=====Sistema de Reserva de Quarto de Hoteis=====");
-        opcoesDoMenu();
+
+        do {
+            opcoesDoMenu();
+            input = sc.nextLine().trim();
+
+            switch (input){
+                case "1":
+                    System.out.println("Nova reserva criada");
+                    break;
+                case "2":
+                    System.out.println("Listar reservas");
+                    break;
+                case "3":
+                    System.out.println("Retornar reserva por nome");
+                    break;
+                case "4":
+                    System.out.println("Retornar reservas ordenadas em ordem decrescente");
+                    break;
+                case "5":
+                    System.out.println("Até Logo!");
+                    break;
+                default:
+                    System.out.println("Opção inválida!\n");
+                    break;
+            }
+
+        } while (!input.equals("5"));
+
+        sc.close();
 
 
 

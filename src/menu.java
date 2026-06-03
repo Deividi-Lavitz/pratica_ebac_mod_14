@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class menu {
-
+    //Função para imprimir o menu
     public static void opcoesDoMenu(){
         System.out.println("[1] - Nova reserva");
         System.out.println("[2] - Listar reservas");
@@ -17,6 +17,7 @@ public class menu {
 
         System.out.println("=====Sistema de Reserva de Quarto de Hoteis=====");
 
+        //Loop do while para executar o menu até o user escolher a opção de sair
         do {
             opcoesDoMenu();
             input = sc.nextLine().trim();
@@ -37,6 +38,7 @@ public class menu {
                 case "5":
                     System.out.println("Até Logo!");
                     break;
+                //Opção default usada para tratar inputs inválidos
                 default:
                     System.out.println("Opção inválida!\n");
                     break;

@@ -27,4 +27,18 @@ public class Reserva {
 
     public void setValorDiaria(double valorDiaria){ this.valorDiaria = valorDiaria; }
 
+    public double calcularValorTotal(){
+        return this.numeroDias * this.valorDiaria;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Nome do hospede: " + this.nomeHospede + "\n" +
+                "Tipo de quarto: " + this.tipoQuarto + "\n" +
+                "Número de dias: " + this.numeroDias + "\n" +
+                "Valor da diária: " + this.valorDiaria + "\n" +
+                "Valor total: " + calcularValorTotal() + "\n";
+    }
+
 }

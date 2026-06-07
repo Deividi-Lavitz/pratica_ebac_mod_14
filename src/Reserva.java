@@ -59,4 +59,21 @@ public class Reserva {
         return list.contains(nome.toLowerCase());
     }
 
+    //Valida o numero de dias para que seja qualquer numero menos zero
+    //isso evita tambem numeros negativos pois nao acieta sinal
+    public static boolean estadiaValida(String numero) {
+        String regexEstadiaValida = "^(?!0$)\\d+$";
+
+        return numero.matches(regexEstadiaValida);
+    }
+
+    //Valida se o valor da diaria está com duas casas decimais
+    public static boolean diariaValida(String numero) {
+        String regexDiariaValida = "^\\d+\\.\\d{2}$";
+
+        return numero.matches(regexDiariaValida);
+    }
 }
+
+
+

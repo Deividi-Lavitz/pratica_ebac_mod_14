@@ -14,6 +14,9 @@ public class menu {
     public static void main (String[] args){
         Scanner sc = new Scanner(System.in);
         String input, nome, tipoQuarto;
+        int numeroDias;
+        double valorDiaria;
+
         //Lista de reservas
         ArrayList<Reserva> listaDeReservas = new ArrayList<>(10);
 
@@ -45,7 +48,19 @@ public class menu {
 
                     tipoQuarto = input;
 
+                    do{
+                        System.out.println("Digite quantos dias de estadia (mínimo 1): ");
+                        input = sc.nextLine().trim();
+                    } while (!Reserva.estadiaValida(input));
 
+                    numeroDias = Integer.parseInt(input);
+
+                    do{
+                        System.out.println("Digite o valor da diária no formato '10.00': ");
+                        input = sc.nextLine().trim();
+                    } while (!Reserva.diariaValida(input));
+
+                    valorDiaria = Double.parseDouble(input);
 
 
                     System.out.println("Nova reserva criada");

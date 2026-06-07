@@ -41,4 +41,20 @@ public class Reserva {
                 "Valor total: " + calcularValorTotal() + "\n";
     }
 
+    //Validações referente as reservas
+
+    //Valida por um nome com ao menos 2 caracteres e não aceita numeros
+    public static boolean nomeValido(String nome) {
+        String regexNomeValido = "^[\\p{L} ]+$";
+
+        return nome.matches(regexNomeValido);
+    }
+
+    //Valida por um nome com ao menos 2 caracteres aceita letras e numeros porem precisa ao menos uma letra
+    public static boolean tipoValido(String nome) {
+        String regexTipoValido = "^(?=.*[A-Za-z])[A-Za-z0-9]{2,}$";
+
+        return nome.matches(regexTipoValido);
+    }
+
 }

@@ -14,6 +14,8 @@ public class menu {
     public static void main (String[] args){
         Scanner sc = new Scanner(System.in);
         String input, nome, tipoQuarto;
+        //Lista de reservas
+        ArrayList<Reserva> listaDeReservas = new ArrayList<>(10);
 
 
         System.out.println("=====Sistema de Reserva de Quarto de Hoteis=====");
@@ -22,8 +24,7 @@ public class menu {
         do {
             opcoesDoMenu();
             input = sc.nextLine().trim();
-            //Lista de reservas
-            ArrayList<Reserva> listaDeReservas = new ArrayList<>(10);
+
 
 
 
@@ -38,7 +39,7 @@ public class menu {
                     nome = input;
 
                     do{
-                        System.out.println("Digite o tipo do quarto com ao menos 2 caracteres (letras ou letras e numeros): ");
+                        System.out.println("Escolha o tipo de quarto (Standard, Luxo ou Presidencial):");
                         input = sc.nextLine().trim();
                     } while (!Reserva.tipoValido(input));
 

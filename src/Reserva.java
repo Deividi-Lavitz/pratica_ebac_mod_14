@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class Reserva {
     String nomeHospede;
     String tipoQuarto;
@@ -50,11 +53,10 @@ public class Reserva {
         return nome.matches(regexNomeValido);
     }
 
-    //Valida por um nome com ao menos 2 caracteres aceita letras e numeros porem precisa ao menos uma letra
+    //Valida em lower case se o nome informado é um dos tipos de quarto válidos
     public static boolean tipoValido(String nome) {
-        String regexTipoValido = "^(?=.*[A-Za-z])[A-Za-z0-9]{2,}$";
-
-        return nome.matches(regexTipoValido);
+        List<String> list = Arrays.asList(new String[]{"standard", "luxo", "presidencial"});
+        return list.contains(nome.toLowerCase());
     }
 
 }

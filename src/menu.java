@@ -13,12 +13,13 @@ public class menu {
 
     public static void main (String[] args){
         Scanner sc = new Scanner(System.in);
-        String input, nome, tipoQuarto;
+        String input, nomeHospede, tipoQuarto;
         int numeroDias;
         double valorDiaria;
 
-        //Lista de reservas
+        //Lista de reservas e contador
         ArrayList<Reserva> listaDeReservas = new ArrayList<>(10);
+        int numReservas = 0;
 
 
         System.out.println("=====Sistema de Reserva de Quarto de Hoteis=====");
@@ -28,18 +29,21 @@ public class menu {
             opcoesDoMenu();
             input = sc.nextLine().trim();
 
-
-
-
             switch (input){
                 case "1":
-                    System.out.println(listaDeReservas.size());
+
+                    //Condição usada para gerencias o limite de reservas
+                    if (numReservas == 10){
+                        System.out.println("Número máximo de reservas atingido!");
+                        break;
+                    }
+
                     do{
                         System.out.println("Digite o nome do hospede com ao menos 2 caracteres: ");
                         input = sc.nextLine().trim();
                     } while (!Reserva.nomeValido(input));
 
-                    nome = input;
+                    nomeHospede = input;
 
                     do{
                         System.out.println("Escolha o tipo de quarto (Standard, Luxo ou Presidencial):");
@@ -62,11 +66,20 @@ public class menu {
 
                     valorDiaria = Double.parseDouble(input);
 
+                    listaDeReservas.add( new Reserva(nomeHospede, tipoQuarto, numeroDias, valorDiaria));
+                    numReservas++;
 
-                    System.out.println("Nova reserva criada");
+                    System.out.println("Nova reserva criada para " + nomeHospede + "!\n");
                     break;
                 case "2":
-                    System.out.println("Listar reservas");
+                    if (numReservas == 0){
+                        System.out.println("Nenhuma reserva cadastrada!");
+                        break;
+                    }
+                    System.out.println("Lista de reservas:\n\n");
+                    for (Reserva reserva : listaDeReservas){
+                        System.out.println(reserva);
+                    }
                     break;
                 case "3":
                     System.out.println("Retornar reserva por nome");

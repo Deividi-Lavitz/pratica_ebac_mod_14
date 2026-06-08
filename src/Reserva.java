@@ -14,6 +14,12 @@ public class Reserva {
         this.valorDiaria = valorDiaria;
     }
 
+    //Contrutor criado com base no requisito
+    public Reserva(String nomeHospede, String tipoQuarto){
+        this.nomeHospede = nomeHospede;
+        this.tipoQuarto = tipoQuarto;
+    }
+
     public String getNomeHospede(){ return nomeHospede; }
 
     public String getTipoQuarto(){ return tipoQuarto; }

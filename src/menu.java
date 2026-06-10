@@ -72,6 +72,7 @@ public class menu {
                     System.out.println("Nova reserva criada para " + nomeHospede + "!\n");
                     break;
                 case "2":
+                    //Condição usada para evitar o for caso não tenha reservas
                     if (numReservas == 0){
                         System.out.println("Nenhuma reserva cadastrada!");
                         break;
@@ -82,7 +83,19 @@ public class menu {
                     }
                     break;
                 case "3":
-                    System.out.println("Retornar reserva por nome");
+                    //Condição usada para evitar a busca em caso não tenha reservas
+                    if (numReservas == 0){
+                        System.out.println("Nenhuma reserva cadastrada!");
+                        break;
+                    }
+                    do{
+                        System.out.println("Digite o nome do hospede que deseja buscar a reserva com ao menos 2 caracteres: ");
+                        input = sc.nextLine().trim();
+                    } while (!Reserva.nomeValido(input));
+
+                    nomeHospede = input;
+
+                    Reserva.listarReservaPorNome(listaDeReservas, nomeHospede);
                     break;
                 case "4":
                     System.out.println("Retornar reservas ordenadas em ordem decrescente");

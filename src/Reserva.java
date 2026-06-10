@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -79,6 +80,26 @@ public class Reserva {
 
         return numero.matches(regexDiariaValida);
     }
+
+    //Recebe a lista de reservas e o nome para buscar pelo nome fazendo ignore case
+    public static void listarReservaPorNome(ArrayList<Reserva> listaDeReservas, String nome) {
+
+        int resultado = 0;
+
+        for (Reserva reserva : listaDeReservas){
+
+            if (reserva.nomeHospede.equalsIgnoreCase(nome)){
+                System.out.println(reserva);
+                resultado++;
+            }
+        }
+
+        if (resultado == 0){
+            System.out.println("Nenhuma reserva encontrada em nome de " + nome + "!");
+        }
+
+    }
+
 }
 
 

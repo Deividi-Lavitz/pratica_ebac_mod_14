@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class menu {
@@ -98,8 +100,23 @@ public class menu {
                     Reserva.listarReservaPorNome(listaDeReservas, nomeHospede);
                     break;
                 case "4":
-                    System.out.println("Retornar reservas ordenadas em ordem decrescente");
+                    //Condição usada para evitar o for caso não tenha reservas
+                    if (numReservas == 0){
+                        System.out.println("Nenhuma reserva cadastrada!");
+                        break;
+                    }
+
+                    //Criando uma nova lista para armazenar os valores da lista original e depois ordenalos
+                    //Dessa forma mantendo a ordem da lista originam intacta conforme meu entendimento dos requisitos
+                    ArrayList<Reserva> listaOrdenadaDec = new ArrayList<>(listaDeReservas);
+
+                    System.out.println("Lista de reservas em ordem decrescente:\n\n");
+                    listaOrdenadaDec.sort(Comparator.comparingInt(Reserva::getNumeroDias).reversed());
+                    for (Reserva reserva : listaOrdenadaDec){
+                        System.out.println(reserva);
+                    }
                     break;
+
                 case "5":
                     System.out.println("Até Logo!");
                     break;
